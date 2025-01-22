@@ -23,23 +23,30 @@
     </head>
     <body>
         <h2 align ="center"> data mahasiswa KA 2021</h2>
+        <a href="Tambah_mahasiswa.php" class="btn btn-primary">Tambah</a>
         <table class = "table table-bordered table-hover">
             <tr>
                 <th> no </th> 
                 <th> nim </th>
                 <th> nama</th>
                 <th> program studi </th>
+                <th> Edit </th>
             </tr> 
             <?php foreach ($mahasiswa as $row){ ?>
                 <tr>
-                <th> <?= $nomer++; ?></th> 
-                <th> <?= $row['NIM']; ?></th> 
-                <th> <?= $row['NAMA']; ?></th> 
-                <th> <?= $row['NAME'] ; ?></th> 
+                <td> <?= $nomer++; ?></td> 
+                <td> <?= $row['NIM']; ?></td> 
+                <td> <?= $row['NAMA']; ?></td> 
+                <td> <?= $row['NAME'] ; ?></td> 
+                <td>
+                    <a href="edit_mahasiswa.php?NIM=<?= $row['NIM']?>" class="btn btn-success">Edit</a>
+                    <a href="hapus_mahasiswa.php?NIM=<?= $row['NIM']?>" class="btn btn-danger"
+                    onclick="return confirm('Apakah Anda Yakin Akan Menghapus Data Ini ?');">Hapus</a>
+                </td>    
                 </tr>
                 <?php  } ?>
             </table>
-           
+            </div>
             
     </body>
     </html>
