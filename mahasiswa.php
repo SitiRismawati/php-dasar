@@ -1,5 +1,13 @@
     <?php
     session_start();
+        
+        if (!isset($_SESSION['login'])) {
+            if ($_SESSION['login'] != true) {
+                header("Location: login.php");
+                exit;
+            }
+        }
+
 
         $mysqli = new mysqli('localhost','root', '', 'tedc');
         $result = $mysqli->query("SELECT students.NIM, students.NAMA, studi_programs.NAME
@@ -31,6 +39,7 @@
         </div>
         <?php } ?>
         <a href="tambah _mahasiswa.php" class="btn btn-primary">Tambah</a>
+        <a href="logout.php" class="btn btn-warning">Logout</a> 
         <table class = "table table-bordered table-hover">
             <tr>
                 <th> no </th> 
